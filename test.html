@@ -15,8 +15,15 @@
     }
    
   function byTheHour() {
-    Puck.eval("hourlyRain.forEach(myRain)",function(x) { console.log(x); })
+    Puck.eval("hourlyRain",function(myRain) { console.log(x); })
   }
+   
+  hourlyRain.forEach(myRain) 
+  function myRain(value, index, array) {
+    print(index, value);
+    console.log(index, value);
+  }
+  
   </script>  
  </body>
 </html>
