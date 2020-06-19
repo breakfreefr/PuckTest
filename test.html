@@ -6,12 +6,17 @@
   <button onclick="Puck.write('LED1.set();\n');">On!</button>
   <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
   <button onclick="getLightValue()">Light Value!</button>
+  <button onclick="getLightValue()">Light Value!</button>
 
   <script type="text/javascript">
    
   function getLightValue() {
-      Puck.eval("Puck.light()",function(x) { console.log(x); }) 
+    Puck.eval("Puck.light()",function(x) { console.log(x); }) 
     }
+   
+  function byTheHour() {
+    Puck.eval("hourlyRain.forEach(myRain)",function(x) { console.log(x); })
+  }
   </script>  
  </body>
 </html>
