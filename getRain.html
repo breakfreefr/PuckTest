@@ -123,6 +123,7 @@
     function getLightValue() {
       Puck.eval("Puck.light()", function(v) {
         path.style.fill="rgb("+Math.round(v*255)+",0,0)";
+	document.write(v);
         setTimeout(function() {
           getLightValue();
         }, 250);
