@@ -10,12 +10,7 @@
   <script type="text/javascript">
    
   function getLightValue() {
-      Puck.eval("Puck.light()", function(v) {
-        window.alert(v);
-        setTimeout(function() {
-          getLightValue();
-        }, 250);
-      });
+      Puck.eval("BTN.read()",function(x) { console.log(x); }) 
     }
   </script>  
  </body>
