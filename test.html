@@ -5,5 +5,21 @@
   <script src="https://www.puck-js.com/puck.js"></script>
   <button onclick="Puck.write('LED1.set();\n');">On!</button>
   <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
+  <button onclick="getLightValue()">Light Value!</button>
+  
+      function getLightValue() {
+      Puck.eval("Puck.light()", function(v) {
+        window.alert(v)
+        setTimeout(function() {
+          getLightValue();
+        }, 250);
+
+    }
+
+    // When clicked, start trying to get the light value
+    path.addEventListener("click", function() {
+      getLightValue();
+    });
+  
  </body>
 </html>
