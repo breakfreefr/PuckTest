@@ -25,16 +25,11 @@
      )
    }
    
-  function byTheHour() {
-    Puck.eval("hourlyRain",function(d) {
-     console.log(d[0]);
-    })
-  }
    
   // hourlyRain.forEach(myRain) 
    
   function myRain(value, index, array) {
-    print(index, value);
+    document.write(index, value);
     console.log("hour: ", index, value);
   }
   
