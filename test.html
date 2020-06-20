@@ -11,13 +11,18 @@
   <script type="text/javascript">
    
   function getLightValue() {
-    Puck.eval("Puck.light()",function(d) { console.log(x); }) 
+    Puck.eval("Puck.light()",function(v) { 
+      console.log(v); 
+        }
+      ) 
     }
    
    function getRainArray() {
-    Puck.eval("("hourlyRain",function(d) {
-      console.log(x); 
-   })
+     Puck.eval("hourlyRain", function(r) {
+       console.log(r); 
+       }
+     )
+   }
    
   function byTheHour() {
     Puck.eval("hourlyRain",function(d) {
