@@ -65,10 +65,7 @@
 
     }
 
-    function getRainArray() {
-     Puck.eval("hourlyRain", function(hourlyRain) {
-       }
-     )
+
 
     function init() {
       var rainfall = document.getElementById("rainfall");
@@ -85,6 +82,12 @@
 
     }
     window.onload = init;
+
+    function getRainArray() {
+     Puck.eval("hourlyRain", function(hourlyRain) {
+       // hourlyRain.forEach(myRain)
+       }
+     )
 
   </script>
 </head>
