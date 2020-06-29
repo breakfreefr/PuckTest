@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>Show an array of 24 values</title>
+  <title>Read a days rainfall</title>
   <script src="https://www.puck-js.com/puck.js"></script>
   <script>
 
@@ -65,13 +65,28 @@
 
     }
 
-    function getRainArray() {
-      Puck.eval("hourlyRain");
-      //, function(hourlyRain) {
-       // hourlyRain.forEach(myRain)
+    function getLightValue() {
+    Puck.eval("Puck.light()",function(v) { 
+      console.log(v); 
         }
-      )
+      ) 
     }
+   
+   function getRainArray() {
+     Puck.eval("hourlyRain", function(hourlyRain) {
+       // console.log(hourlyRain);
+       hourlyRain.forEach(myRain) 
+       }
+     )
+   }
+   
+   
+  // hourlyRain.forEach(myRain) 
+   
+  function myRain(value, index, array) {
+    document.getElementById("display").innerHTML = index + " : " + value + " <br>" ;
+    console.log("hour: ", index, value);
+  }
 
 
     function init() {
@@ -97,7 +112,10 @@
 
 <body>
   <h1>Array of rain in past 24 hours</h1>
+  <div>
+  <button onclick="getLightValue()">Light Value!</button>
   <button onclick="getRainArray()">Rain Array!</button>
+  </div>
 
   <p id="rainfall_0">Replace with a single value</p>
 
