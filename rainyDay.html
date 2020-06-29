@@ -65,6 +65,12 @@
 
     }
 
+    function getRainArray() {
+      Puck.eval("hourlyRain", function(hourlyRain) {
+       // hourlyRain.forEach(myRain)
+        }
+      )
+    }
 
 
     function init() {
@@ -81,13 +87,9 @@
       graintable.innerHTML = gridTable(weeklyRain);
 
     }
+
     window.onload = init;
 
-    function getRainArray() {
-     Puck.eval("hourlyRain", function(hourlyRain) {
-       // hourlyRain.forEach(myRain)
-       }
-     )
 
   </script>
 </head>
