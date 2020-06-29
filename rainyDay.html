@@ -1,0 +1,112 @@
+<head>
+  <meta charset="utf-8">
+  <title>Show an array of 24 values</title>
+  <script src="https://www.puck-js.com/puck.js"></script>
+  <script>
+
+  // two dim array : 7 days x 24 hours
+
+
+    var hourlyRain = Array(24).fill(0);
+    var rMon, rTue, rWed, rThu, rFri, rSat, rSun ;
+    var weeklyRain =  [rMon, rTue, rWed, rThu, rFri, rSat, rSun];
+
+    for  ( i in weeklyRain ) {
+      weeklyRain[i] =  Array(24).fill(0);
+    }
+
+    console.log(weeklyRain);
+  
+
+    // produces a html table going verticaly by index, from array
+
+
+    function vertTable(myArray){
+  
+      var mytable =  "<table>";
+    
+      for ( i = 0 ; i < myArray.length ; i++ ) {  
+        mytable += "<tr><td>" + i + "</td><td>" + myArray[i] + "</td></tr>";
+        }
+      mytable += "</table>";
+      return mytable;
+      }
+
+    // produces a simple horizontal table
+
+    function horizTable(myArray){
+
+      var mytable = "<table><tr>";
+
+      for ( i = 0; i < myArray.length ; i++ ) {
+        mytable += "<td>" + i + "</td>" ; 
+      } 
+      mytable += "</tr><tr>" ;
+      for ( i = 0; i < myArray.length ; i++ ) {
+        mytable += "<td>" + myArray[i] + "</td>" ;
+      } 
+      mytable += "</tr>" ;
+      return mytable;
+    }
+
+    function gridTable(myArray){
+
+      var mytable = "<table>";
+      for ( i = 0; i < myArray.length ; i++ ) {
+        mytable += "<tr>"
+        for ( j = 0; j < myArray[0].length; j++ ) {
+          mytable += "<td>" + myArray[i][j] + "</td>" ; 
+        }
+        mytable += "</tr>"
+      } 
+      mytable += "</table>" ;
+      console.log(mytable);
+      return mytable;
+
+    }
+
+    function getRainArray() {
+     Puck.eval("hourlyRain", function(hourlyRain) {
+       }
+     )
+
+    function init() {
+      var rainfall = document.getElementById("rainfall");
+
+      var raintable = document.getElementById("raintable");
+      var hraintable = document.getElementById("hraintable");
+      var graintable = document.getElementById("graintable");
+
+      rainfall_0.innerHTML = hourlyRain;
+
+      raintable.innerHTML = vertTable(hourlyRain);
+      hraintable.innerHTML = horizTable(hourlyRain);
+      graintable.innerHTML = gridTable(weeklyRain);
+
+    }
+    window.onload = init;
+
+  </script>
+</head>
+
+<body>
+  <h1>Array of rain in past 24 hours</h1>
+  <button onclick="getRainArray()">Rain Array!</button>
+
+  <p id="rainfall_0">Replace with a single value</p>
+
+  <div id="raintable">it's only rain</div>
+
+  <div id="hraintable"></div>
+  <div id="graintable"></div>
+</body>
+
+<style>
+  td {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+</style>
+
+</html>
